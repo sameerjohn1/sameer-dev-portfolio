@@ -93,59 +93,62 @@ const Navbar = () => {
         className={
           !nav
             ? "hidden"
-            : `absolute top-0 left-0 w-full h-screen flex flex-col justify-center items-center ${
+            : `fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center z-[9999] ${
                 theme === "dark" ? "bg-[#0a192f]" : "bg-gray-100"
               }`
         }
       >
-        <li className="py-6 text-4xl">
-          <Link onClick={handleClick} to="home" smooth={true} duration={500}>
+        <div
+          onClick={handleClick}
+          className="absolute top-5 right-5 cursor-pointer"
+        >
+          <FaTimes size={30} />
+        </div>
+
+        <li className="py-5 text-3xl">
+          <Link onClick={handleClick} to="home" smooth duration={500}>
             Home
           </Link>
         </li>
-        <li className="py-6 text-4xl">
-          <Link onClick={handleClick} to="about" smooth={true} duration={500}>
+
+        <li className="py-5 text-3xl">
+          <Link onClick={handleClick} to="about" smooth duration={500}>
             About
           </Link>
         </li>
-        <li className="py-6 text-4xl">
-          <Link onClick={handleClick} to="skills" smooth={true} duration={500}>
+
+        <li className="py-5 text-3xl">
+          <Link onClick={handleClick} to="skills" smooth duration={500}>
             Skills
           </Link>
         </li>
-        <li className="py-6 text-4xl">
-          <Link onClick={handleClick} to="work" smooth={true} duration={500}>
+
+        <li className="py-5 text-3xl">
+          <Link onClick={handleClick} to="work" smooth duration={500}>
             Work
           </Link>
         </li>
 
-        <li className="py-6 text-4xl">
-          <Link
-            onClick={handleClick}
-            to="projects"
-            smooth={true}
-            duration={500}
-          >
+        <li className="py-5 text-3xl">
+          <Link onClick={handleClick} to="projects" smooth duration={500}>
             Projects
           </Link>
         </li>
 
-        <li className="py-6 text-4xl">
-          <Link
-            onClick={handleClick}
-            to="testimonials"
-            smooth={true}
-            duration={500}
-          >
+        <li className="py-5 text-3xl">
+          <Link onClick={handleClick} to="testimonials" smooth duration={500}>
             Testimonials
           </Link>
         </li>
-        <li className="py-6 text-4xl">
-          <Link onClick={handleClick} to="contact" smooth={true} duration={500}>
+
+        <li className="py-5 text-3xl">
+          <Link onClick={handleClick} to="contact" smooth duration={500}>
             Contact
           </Link>
         </li>
-        <li onClick={toggleTheme} className="py-6 text-4xl cursor-pointer">
+
+        {/* THEME TOGGLE */}
+        <li onClick={toggleTheme} className="py-6 text-3xl cursor-pointer">
           {theme === "dark" ? <FaSun size={30} /> : <FaMoon size={30} />}
         </li>
       </ul>
