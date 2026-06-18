@@ -3,6 +3,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from '../context/ThemeContext';
 import { ToastContainer } from 'react-toastify';
 import Script from 'next/script';
+import dynamic from 'next/dynamic';
+
+const Cursor = dynamic(() => import('../components/Cursor'), { ssr: false });
 
 export const metadata = {
   metadataBase: new URL("https://portfolio-82me.vercel.app"),
@@ -75,6 +78,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ThemeProvider>
+          <Cursor />
           {children}
           <ToastContainer position="top-right" autoClose={5000} theme="dark" />
         </ThemeProvider>
