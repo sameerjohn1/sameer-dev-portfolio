@@ -117,9 +117,9 @@ const About = () => {
         <div className="max-w-[1100px] w-full gap-8 z-[5]">
           <section className="text-gray-600 body-font">
             <div className="container py-10 mx-auto flex flex-wrap">
-              <div className="flex  w-full">
+              <div className="flex flex-col lg:flex-row w-full">
                 {/* Steps */}
-                <div className="lg:w-[60%] md:w-1/2 md:pr-10 md:py-6 z-[9999]">
+                <div className="w-full lg:w-[60%] lg:pr-10 lg:py-6 z-[9999]">
                   {steps.map((step, index) => (
                     <div
                       key={index}
@@ -158,9 +158,10 @@ const About = () => {
                 </div>
 
                 {/* Image */}
-                <div className="lg:w-[40%] md:w-1/2 relative md:mt-0 mt-12 h-[400px] md:h-auto rounded-lg overflow-hidden">
+                <div className="w-full lg:w-[40%] relative mt-12 lg:mt-0 h-[800px] lg:h-[800px] rounded-lg overflow-hidden">
+                  {" "}
                   <Image
-                    src="/assets/images/image.jpg"
+                    src="/assets/images/sameer.png"
                     alt="Sameer John"
                     fill
                     className="object-cover object-center rounded-lg"
