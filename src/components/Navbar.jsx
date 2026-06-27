@@ -13,6 +13,7 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-scroll";
 import { ThemeContext } from "../context/ThemeContext";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -30,12 +31,11 @@ const Navbar = () => {
   ];
 
   return (
-    <div
-      className={`fixed w-full h-[80px] flex justify-between z-[9999] items-center px-4 ${
-        theme === "dark"
-          ? "bg-[#0a192f] text-gray-300"
-          : "bg-gray-100 text-gray-800"
-      }`}
+    <motion.div
+      className={`fixed w-full h-[80px] flex justify-between z-[9999] items-center px-4 ${theme === "dark" ? "bg-[#0a192f] text-gray-300" : "bg-gray-100 text-gray-800"}`}
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div>
         <h3 style={{ width: "50px", cursor: "pointer" }}>Sameer</h3>
@@ -195,7 +195,7 @@ const Navbar = () => {
           </a>
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

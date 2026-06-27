@@ -1,14 +1,18 @@
 "use client";
 
+import React, { Suspense, lazy } from "react";
+import { LazyFadeIn } from "./LazyFadeIn";
 import Navbar from "./Navbar";
-import Home from "./Home";
-import About from "./About";
-import Skills from "./Skills";
-import Work from "./Work";
-import Projects from "./Projects";
-import Testimonials from "./Testimonials";
-import Contact from "./Contact";
 import ScrollToTop from "./ScrollToTop";
+
+// Lazy-loaded components
+const Home = lazy(() => import("./Home"));
+const About = lazy(() => import("./About"));
+const Skills = lazy(() => import("./Skills"));
+const Work = lazy(() => import("./Work"));
+const Projects = lazy(() => import("./Projects"));
+const Testimonials = lazy(() => import("./Testimonials"));
+const Contact = lazy(() => import("./Contact"));
 
 export default function MainContent() {
   return (
@@ -16,13 +20,41 @@ export default function MainContent() {
       <Navbar />
       <ScrollToTop />
       <main>
-        <Home />
-        <About />
-        <Skills />
-        <Work />
-        <Projects />
-        <Testimonials />
-        <Contact />
+        <Suspense fallback={<div>Loading Home...</div>}>
+          <LazyFadeIn>
+            <Home />
+          </LazyFadeIn>
+        </Suspense>
+        <Suspense fallback={<div>Loading About...</div>}>
+          <LazyFadeIn>
+            <About />
+          </LazyFadeIn>
+        </Suspense>
+        <Suspense fallback={<div>Loading Skills...</div>}>
+          <LazyFadeIn>
+            <Skills />
+          </LazyFadeIn>
+        </Suspense>
+        <Suspense fallback={<div>Loading Work...</div>}>
+          <LazyFadeIn>
+            <Work />
+          </LazyFadeIn>
+        </Suspense>
+        <Suspense fallback={<div>Loading Projects...</div>}>
+          <LazyFadeIn>
+            <Projects />
+          </LazyFadeIn>
+        </Suspense>
+        <Suspense fallback={<div>Loading Testimonials...</div>}>
+          <LazyFadeIn>
+            <Testimonials />
+          </LazyFadeIn>
+        </Suspense>
+        <Suspense fallback={<div>Loading Contact...</div>}>
+          <LazyFadeIn>
+            <Contact />
+          </LazyFadeIn>
+        </Suspense>
       </main>
     </div>
   );
