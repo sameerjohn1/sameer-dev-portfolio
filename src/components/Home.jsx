@@ -5,6 +5,7 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
 import { ThemeContext } from "../context/ThemeContext";
 import dynamic from "next/dynamic";
+import Typewriter from "./TypeWritter";
 
 const ParticlesComponent = dynamic(() => import("./Particle"), { ssr: false });
 
@@ -59,8 +60,7 @@ const Home = () => {
             theme === "dark" ? "text-[#8892b0]" : "text-gray-600"
           }`}
         >
-          React.js & Next.js Developer | TypeScript · Redux Toolkit · TanStack
-          Query | MERN Stack
+          <Typewriter />
         </h2>
         <p
           className={`${
